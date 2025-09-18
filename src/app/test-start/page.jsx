@@ -9,9 +9,6 @@ import { Button } from "@/components/ui/button";
 import { createTest } from "@/actions/testActions";
 import toast from "react-hot-toast";
 import Link from "next/link";
-import Lottie from 'lottie-react';
-import loadingAnimation from '../../../public/loading2.json';
-import loadingAnimationDark from '../../../public/loading.json';
 
 const TestStartPage = () => {
   const { data: session, status } = useSession();
@@ -35,6 +32,7 @@ const TestStartPage = () => {
       router.push("/signin");
     }
   }, [status, router]);
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -66,17 +64,10 @@ const TestStartPage = () => {
   }
 
   if (isLoading) {
-    // Determine which animation to use based on the theme
-    const animationData = document.body.classList.contains('dark') ? loadingAnimationDark : loadingAnimation;
-
     return (
       <div className="flex flex-col items-center justify-center h-screen w-screen bg-white dark:bg-black fixed top-0 left-0 z-50">
-        <Lottie
-          animationData={animationData}
-          loop={true}
-          className="w-1/2 h-1/2" // Adjust size here
-        />
-        <p className="mt-4 text-lg text-gray-800 dark:text-white bounce">Creating test...</p>
+        <div className="w-32 h-32 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
+        <p className="mt-4 text-lg text-gray-800 dark:text-white">Creating test...</p>
       </div>
     );
   }
