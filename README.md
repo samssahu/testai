@@ -157,7 +157,7 @@ Thanks to these wonderful people who have contributed to this project:
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/samssahu"><img src="https://avatars.githubusercontent.com/u/62953198?v=4" width="100px;" alt=""/><br /><sub><b>sincerelyyyash</b></sub></a></td>
+    <td align="center"><a href="https://github.com/samssahu"><img src="https://avatars.githubusercontent.com/u/62953198?v=4" width="100px;" alt=""/><br /><sub><b>sincerely sameer</b></sub></a></td>
    </tr>
 </table>
 
