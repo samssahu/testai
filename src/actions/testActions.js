@@ -1,6 +1,6 @@
 "use server";
 
-import { generateQuestions, verifyTestWithGemini } from "@/lib/gemini";
+import { generateQuestions, verifyTestWithGemini, verifyTestLocally } from "@/lib/gemini";
 
 import Test from "@/models/Test";
 import TestResult from "@/models/TestResult";
@@ -64,7 +64,8 @@ export async function submitTest(testId, userAnswers, userId) {
       geminiResult = await verifyTestWithGemini(test, userAnswers);
     } catch (error) {
       console.error("Error verifying test with Gemini:", error);
-      return { success: false, error: "Failed to verify test results" };
+      // Fallback to local verification
+      geminiResult = verifyTestLocally(test, userAnswers);
     }
     console.log("Gemini result:", geminiResult);
 
