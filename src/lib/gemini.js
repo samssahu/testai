@@ -11,7 +11,7 @@ function cleanAndParseJSON(text) {
 }
 
 export async function generateQuestions(testDetails) {
-  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
   const prompt = `Generate ${testDetails.numQuestions} multiple-choice questions for a ${testDetails.difficulty} level test on ${testDetails.tags}. 
   The test title is "${testDetails.title}" and the description is "${testDetails.description}". 
@@ -47,7 +47,7 @@ export async function generateQuestions(testDetails) {
 
 export async function verifyTestWithGemini(test, userAnswers) {
   console.log("Verifying test with Gemini...", { test, userAnswers });
-  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-pro" });
 
   const prompt = `
     Analyze the following test results:
